@@ -23,7 +23,7 @@ const getByIngredient = async (endpoint: EndpointRequest, ingredient: string) =>
     if (endpoint === '/drinks') {
       query = 'SELECT * FROM drinks_ingredients WHERE name = ?;';
     } else {
-      query = 'SELECT * FROM meals_ingredientsWHERE name = ?;';
+      query = 'SELECT * FROM meals_ingredients WHERE name = ?;';
     }
     const [result] = await connection.execute(query, [ingredient]);
     return result;

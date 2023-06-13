@@ -6,6 +6,7 @@
   "type": "commonjs",
   "scripts": {
     "test": "mocha -r ts-node/register ./tests/*.test.ts -t 10000 --exit",
+    "start": "ts-node src/server.ts",
     "dev": "nodemon src/server.ts",
     "lint": "eslint ./src --ext .ts"
   },
