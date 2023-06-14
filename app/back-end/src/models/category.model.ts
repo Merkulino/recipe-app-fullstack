@@ -3,15 +3,6 @@ import connection from './db/connection';
 import getQueryRecipes from '../utils/querys';
 
 const getAllCategories = async (url: EndpointRequest) => {
-  console.log(
-    process.env.DB_HOST,
-    process.env.DB_USER,
-    process.env.DB_PORT,
-    process.env.MYSQL_ROOT_PASSWORD,
-    process.env.DB_PASS,
-    process.env.MYSQL_DATABASE,
-    process.env.PORT,
-  )
   let query;
   if (url === '/drinks') {
     query = 'SELECT * FROM drinks_categories'
