@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
-const PAGE_URL = process.env.API_URL || 'http://localhost:3001';
+// const PAGE_URL = process.env.API_URL || 'http://localhost:3001';
+const PAGE_URL = 'https://recipeapp-backend.up.railway.app';
 
 export default function useFetch() {
   const [isLoading, setIsLoading] = useState(false);
