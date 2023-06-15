@@ -16,6 +16,7 @@ export default function CardDoneRecipe({ page }) {
     favRecipes,
     handleUnfavorite,
   } = useContext(AppContext);
+  const PAGE_HOST = window.location.origin;
 
   const THREE = 3;
   const ONE_SECOND = 1000;
@@ -46,7 +47,7 @@ export default function CardDoneRecipe({ page }) {
   }, [seconds, idRecipeCopied]);
 
   const handleClick = useCallback(({ target: { name, id } }) => {
-    const link = `http://localhost:3000/${name}/name?q=${id}`;
+    const link = `${PAGE_HOST}/${name}/name?q=${id}`;
     clipboardCopy(link);
     setRecipeCopied(id);
     setSeconds(THREE);

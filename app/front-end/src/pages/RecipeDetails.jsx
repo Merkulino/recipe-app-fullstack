@@ -24,6 +24,7 @@ function RecipeDetails() {
   const location = useLocation();
   const id = location.search;
   const page = location.pathname.split('/')[1];
+  const PAGE_HOST = window.location.origin;
   const [copied, setCopied] = useState(false);
   const { toggleFavorite } = useFavorite();
   const {
@@ -52,7 +53,7 @@ function RecipeDetails() {
   }, [history, location]);
 
   const handleShare = useCallback(() => {
-    copy(`http://localhost:3000${location.pathname}`);
+    copy(`${PAGE_HOST}${location.pathname}${id}`);
 
     setCopied(true);
   }, [location]);

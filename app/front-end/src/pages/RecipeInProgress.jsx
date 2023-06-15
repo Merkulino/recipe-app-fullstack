@@ -15,6 +15,7 @@ function RecipeInProgress() {
   const location = useLocation();
   const id = location.pathname.split('/')[1];
   const page = location.pathname.split('/')[1];
+  const PAGE_HOST = window.location.origin;
   const [copied, setCopied] = useState(false);
   const { toggleFavorite } = useFavorite();
   const [btnEnabled, setBtnEnabled] = useState(false);
@@ -31,10 +32,6 @@ function RecipeInProgress() {
 
   const { handleDoneRecipesFilter } = useContext(AppContext);
   
-  // useEffect(() => {
-  //   // getPageInfo(id, page);
-  // }, [page, id, getPageInfo]);
-
   useEffect(() => {
     checkRecipeStatus();
   }, [recipe, checkRecipeStatus]);
@@ -71,7 +68,7 @@ function RecipeInProgress() {
 
   const handleShare = useCallback(() => {
     const link = history.location.pathname.replace('/in-progress', '');
-    copy(`http://localhost:3000${link}`);
+    copy(`${PAGE_HOST}${link}?q=${recipe[0].name}`);
 
     setCopied(true);
   }, [history]);
